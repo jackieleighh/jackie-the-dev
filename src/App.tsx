@@ -40,7 +40,7 @@ function App() {
             <ProjectCard
               name="TOTMS"
               description="A music festival companion app that keeps you connected to the lineup, schedule, and everything you need for the best festival experience."
-              tags={["Typescript", "Flutter", "Firebase"]}
+              tags={["React", "Flutter", "Firebase"]}
               link="https://totms-app.web.app/"
             />
             <ProjectCard
