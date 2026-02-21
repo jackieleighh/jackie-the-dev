@@ -11,7 +11,7 @@ function App() {
       <div className="main-page">
         {/* Hero */}
         <div id="home" className="section">
-          <h1>JACKIE</h1>
+          <h1>Hi, I'm Jackie.</h1>
           <p>freelance web & mobile developer</p>
         </div>
 
@@ -19,10 +19,10 @@ function App() {
         <div id="about" className="section">
           <div className="section-header">about me</div>
           <p>
-            Hey! I'm Jackie — I build things for the internet and your pocket.
-            I'm on a mission to make the digital world a little prettier, one
-            app at a time. TypeScript, React, and Flutter are my go-to's, but
-            I'm always down to pick up something new.
+            Hi, I'm Jackie. I build things for the internet and your pocket. I'm
+            on a mission to make the digital world a little prettier, one app at
+            a time. TypeScript, React, and Flutter are my go-to's, but I'm
+            always down to pick up something new.
           </p>
           <p>
             Landing pages, full-stack platforms, cross-platform mobile apps —
