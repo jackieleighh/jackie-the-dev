@@ -7,7 +7,7 @@ function ResponsiveNavbar() {
     <Navbar expand="lg" className="navbar" fixed="top" variant="dark">
       <Container>
         <Navbar.Brand href="#home" className="navbar-header">
-          Jackie
+          J
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
