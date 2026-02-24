@@ -63,7 +63,7 @@ body {
 
 #home p {
   font-family: "Comfortaa", sans-serif;
-  color: #c4b5fd;
+  color: #ff631a;
   font-size: 16pt;
   margin-top: 16px;
   font-weight: 300;
@@ -140,7 +140,7 @@ body {
 .nav-link {
   font-family: "Comfortaa", sans-serif;
   font-weight: 500;
-  color: #ff4d6d;
+  color: #ff631a;
 }
 
 .nav-link:hover,
@@ -149,7 +149,7 @@ body {
 }
 
 .nav-link.active {
-  color: #ff4d6d !important;
+  color: #ff631a !important;
 }
 
 .navbar-toggler {
@@ -214,7 +214,7 @@ body {
 
 .project-card {
   background-color: rgba(255, 255, 255, 0.03);
-  border: 1.5px solid #ff4d6d;
+  border: 1.5px solid #ff631a;
   border-radius: 16px;
   padding: 30px;
   width: 340px;
@@ -257,7 +257,7 @@ body {
 
 .project-tag {
   background-color: rgba(255, 77, 109, 0.12);
-  color: #ff4d6d;
+  color: #ff631a;
   border: 1px solid rgba(255, 77, 109, 0.4);
   border-radius: 20px;
   padding: 4px 14px;

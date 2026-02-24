@@ -59,7 +59,7 @@ function App() {
             <FancyButton
               id="email-btn"
               buttonText="email"
-              color="#ff4d6d"
+              color="#ff631a"
               width={200}
               height={50}
               fontSize={16}
@@ -69,7 +69,7 @@ function App() {
             <FancyButton
               id="github-btn"
               buttonText="github"
-              color="#ff4d6d"
+              color="#ff631a"
               width={200}
               height={50}
               fontSize={16}
@@ -81,7 +81,7 @@ function App() {
             <FancyButton
               id="instagram-btn"
               buttonText="instagram"
-              color="#ff4d6d"
+              color="#ff631a"
               width={200}
               height={50}
               fontSize={16}
