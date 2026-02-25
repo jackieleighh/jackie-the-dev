@@ -39,7 +39,7 @@ function FancyButton({ onClick, color, width, height, fontSize, borderWidth, but
           <svg height={height} width={width} viewBox={viewBox}>
             <defs>
               <mask id={id}>
-                <rect width="100%" height="100%" fill="#FFFFFF" />
+                <rect width="100%" height="100%" fill="#FFFFFF" rx="10" ry="10" />
                 <text
                   className="mask-text button-text"
                   fill="#000000"
@@ -59,6 +59,8 @@ function FancyButton({ onClick, color, width, height, fontSize, borderWidth, but
               fill={color}
               width="100%"
               height="100%"
+              rx="10"
+              ry="10"
             />
           </svg>
         </div>
@@ -68,8 +70,12 @@ function FancyButton({ onClick, color, width, height, fontSize, borderWidth, but
               stroke={color}
               strokeWidth={borderWidth}
               fill="transparent"
-              width="100%"
-              height="100%"
+              x={borderWidth / 2}
+              y={borderWidth / 2}
+              width={width - borderWidth}
+              height={height - borderWidth}
+              rx="10"
+              ry="10"
             />
             <text
               className="button-text"

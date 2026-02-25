@@ -60,7 +60,7 @@ function App() {
               width={160}
               height={40}
               fontSize={16}
-              borderWidth={3}
+              borderWidth={1.5}
               onClick={() => window.open("mailto:jackieleighh@gmail.com")}
             />
             <FancyButton
@@ -70,7 +70,7 @@ function App() {
               width={160}
               height={40}
               fontSize={16}
-              borderWidth={3}
+              borderWidth={1.5}
               onClick={() =>
                 window.open("https://github.com/jackieleighh", "_blank")
               }
@@ -82,7 +82,7 @@ function App() {
               width={160}
               height={40}
               fontSize={16}
-              borderWidth={3}
+              borderWidth={1.5}
               onClick={() =>
                 window.open("https://www.instagram.com/jack_inabox", "_blank")
               }

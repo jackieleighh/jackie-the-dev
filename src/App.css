@@ -150,20 +150,20 @@ body {
 }
 
 .navbar-header {
-  font-family: "Lexend Giga", sans-serif;
+  font-family: "Outfit", sans-serif;
   font-weight: 800;
-  color: #c8ff00;
+  color: #eaff00;
   font-size: 20pt;
   letter-spacing: -0.5px;
 }
 
 .navbar-header:hover,
 .navbar-header:focus {
-  color: #c8ff00;
+  color: #eaff00;
 }
 
 .navbar-header.active {
-  color: #c8ff00 !important;
+  color: #eaff00 !important;
 }
 
 .nav-link {
@@ -249,7 +249,7 @@ body {
   background-color: rgba(255, 255, 255, 0.01);
   border: 1.5px solid #ff44c8;
   border-top: 2.5px solid #ff44c8;
-  border-radius: 16px;
+  border-radius: 10px;
   padding: 30px;
   width: 380px;
   text-align: left;
