@@ -22,40 +22,64 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 14pt;
-  color: #e2ddf5;
+  color: #f5edd8;
 }
 
 .section {
   display: flex;
   flex-direction: column;
-  padding: 60px 40px;
+  padding: 80px 40px;
   width: 100%;
 }
 
 .section-header {
   font-family: "Space Grotesk", sans-serif;
   font-weight: 700;
-  color: #c8ff00;
+  color: #ff6b00;
   font-size: 20pt;
-  padding-bottom: 30px;
+  padding-bottom: 24px;
   text-transform: lowercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
 }
 
 /* Hero */
 
 #home {
-  padding: 160px 20px 80px 20px;
+  padding: 160px 20px 100px 20px;
   text-align: center;
   max-width: 800px;
   margin: 0 auto;
+  position: relative;
+}
+
+#home::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  width: 600px;
+  height: 400px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(200, 255, 0, 0.06) 0%,
+    rgba(255, 68, 200, 0.03) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+#home h1, #home p {
+  position: relative;
+  z-index: 1;
 }
 
 #home h1 {
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "Outfit", sans-serif;
   font-weight: 800;
   color: #c8ff00;
-  font-size: 86pt;
+  font-size: 96pt;
   margin: 0;
   letter-spacing: -2px;
   line-height: 0.95;
@@ -63,14 +87,18 @@ body {
 
 #home p {
   font-family: "Comfortaa", sans-serif;
-  color: #ff631a;
+  color: #ff44c8;
   font-size: 16pt;
   margin-top: 16px;
   font-weight: 300;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
 }
 
 @media (max-width: 768px) {
+  #home {
+    text-align: left;
+  }
+
   #home h1 {
     font-size: 44pt;
     letter-spacing: -1px;
@@ -84,7 +112,7 @@ body {
 /* About */
 
 #about {
-  padding: 60px 40px;
+  padding: 80px 40px;
   max-width: 800px;
   margin: 0 auto;
 }
@@ -92,7 +120,7 @@ body {
 #about p {
   text-align: left;
   line-height: 1.9;
-  color: #c4b5fd;
+  color: #f5edd8;
   font-size: 12pt;
   font-weight: 400;
 }
@@ -100,7 +128,7 @@ body {
 /* Contact */
 
 #contact {
-  padding: 40px 20px 100px 20px;
+  padding: 80px 20px 120px 20px;
 }
 
 .section-row {
@@ -140,16 +168,16 @@ body {
 .nav-link {
   font-family: "Comfortaa", sans-serif;
   font-weight: 500;
-  color: #ff631a;
+  color: #ff6b00;
 }
 
 .nav-link:hover,
 .nav-link:focus {
-  color: #ff6b85;
+  color: #ffa040;
 }
 
 .nav-link.active {
-  color: #ff631a !important;
+  color: #ff6b00 !important;
 }
 
 .navbar-toggler {
@@ -214,23 +242,27 @@ body {
 
 .project-card {
   background-color: rgba(255, 255, 255, 0.03);
-  border: 1.5px solid #ff631a;
+  border: 1.5px solid #ff44c8;
+  border-top: 2.5px solid #ff44c8;
   border-radius: 16px;
   padding: 30px;
-  width: 340px;
+  width: 380px;
   text-align: left;
   transition:
     box-shadow 0.3s ease,
     border-color 0.3s ease,
-    transform 0.3s ease;
+    transform 0.3s ease,
+    background-color 0.3s ease;
 }
 
 .project-card:hover {
   box-shadow:
-    0 0 30px rgba(255, 77, 109, 0.25),
-    0 0 60px rgba(200, 255, 0, 0.08);
-  border-color: #ff6b85;
-  transform: translateY(-4px);
+    0 0 30px rgba(255, 68, 200, 0.25),
+    0 0 60px rgba(255, 107, 0, 0.1),
+    0 4px 20px rgba(0, 0, 0, 0.4);
+  border-color: #ff70d8;
+  transform: translateY(-6px);
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
 .project-card h3 {
@@ -242,7 +274,7 @@ body {
 }
 
 .project-card p {
-  color: #c4b5fd;
+  color: #f5edd8;
   font-size: 11pt;
   line-height: 1.7;
   margin: 0 0 16px 0;
@@ -256,9 +288,9 @@ body {
 }
 
 .project-tag {
-  background-color: rgba(255, 77, 109, 0.12);
-  color: #ff631a;
-  border: 1px solid rgba(255, 77, 109, 0.4);
+  background-color: rgba(255, 107, 0, 0.12);
+  color: #ff6b00;
+  border: 1px solid rgba(255, 107, 0, 0.35);
   border-radius: 20px;
   padding: 4px 14px;
   font-size: 10pt;
@@ -268,30 +300,36 @@ body {
 
 .project-link {
   display: inline-block;
-  color: #c8ff00;
+  color: #ff6b00;
   font-family: "Space Grotesk", sans-serif;
   font-weight: 600;
   font-size: 11pt;
   text-decoration: none;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease, letter-spacing 0.2s ease;
 }
 
 .project-link:hover {
   opacity: 0.8;
-  color: #c8ff00;
+  color: #ff6b00;
+  letter-spacing: 0.5px;
 }
 
 @media (max-width: 768px) {
   .project-card {
     width: 100%;
-    max-width: 340px;
+    max-width: 380px;
   }
 
   .section {
-    padding: 40px 20px;
+    padding: 60px 20px;
   }
 
   #about {
-    padding: 40px 20px;
+    padding: 60px 20px;
+  }
+
+  #home::after {
+    width: 300px;
+    height: 250px;
   }
 }
