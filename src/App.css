@@ -170,11 +170,15 @@ body {
   font-family: "Comfortaa", sans-serif;
   font-weight: 500;
   color: #ff6b00;
+  transition:
+    opacity 0.2s ease,
+    letter-spacing 0.2s ease;
 }
 
 .nav-link:hover,
 .nav-link:focus {
   color: #ff44c8;
+  letter-spacing: 0.5px;
 }
 
 .nav-link.active {
