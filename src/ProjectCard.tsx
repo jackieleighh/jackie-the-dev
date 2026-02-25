@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface ProjectCardProps {
   name: string;
@@ -14,7 +14,9 @@ function ProjectCard({ name, description, tags, link }: ProjectCardProps) {
       <p>{description}</p>
       <div className="project-tags">
         {tags.map((tag) => (
-          <span key={tag} className="project-tag">{tag}</span>
+          <span key={tag} className="project-tag">
+            {tag}
+          </span>
         ))}
       </div>
       <a

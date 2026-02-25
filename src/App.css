@@ -53,7 +53,7 @@ body {
 }
 
 #home::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   left: 50%;
@@ -70,7 +70,8 @@ body {
   z-index: 0;
 }
 
-#home h1, #home p {
+#home h1,
+#home p {
   position: relative;
   z-index: 1;
 }
@@ -78,7 +79,7 @@ body {
 #home h1 {
   font-family: "Outfit", sans-serif;
   font-weight: 800;
-  color: #c8ff00;
+  color: #eaff00;
   font-size: 96pt;
   margin: 0;
   letter-spacing: -2px;
@@ -100,8 +101,8 @@ body {
   }
 
   #home h1 {
-    font-size: 44pt;
-    letter-spacing: -1px;
+    font-size: 52pt;
+    letter-spacing: -2px;
   }
 
   #home p {
@@ -173,7 +174,7 @@ body {
 
 .nav-link:hover,
 .nav-link:focus {
-  color: #ffa040;
+  color: #ff44c8;
 }
 
 .nav-link.active {
@@ -241,7 +242,7 @@ body {
 /* Project Card */
 
 .project-card {
-  background-color: rgba(255, 255, 255, 0.03);
+  background-color: rgba(255, 255, 255, 0.01);
   border: 1.5px solid #ff44c8;
   border-top: 2.5px solid #ff44c8;
   border-radius: 16px;
@@ -257,12 +258,12 @@ body {
 
 .project-card:hover {
   box-shadow:
-    0 0 30px rgba(255, 68, 200, 0.25),
-    0 0 60px rgba(255, 107, 0, 0.1),
-    0 4px 20px rgba(0, 0, 0, 0.4);
+    0 0 20px rgba(255, 68, 200, 0.1),
+    0 0 40px rgba(255, 107, 0, 0.1),
+    0 4px 20px rgba(0, 0, 0, 0.2);
   border-color: #ff70d8;
-  transform: translateY(-6px);
-  background-color: rgba(255, 255, 255, 0.05);
+  transform: translateY(-3px);
+  background-color: rgba(255, 255, 255, 0.02);
 }
 
 .project-card h3 {
@@ -305,11 +306,12 @@ body {
   font-weight: 600;
   font-size: 11pt;
   text-decoration: none;
-  transition: opacity 0.2s ease, letter-spacing 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    letter-spacing 0.2s ease;
 }
 
 .project-link:hover {
-  opacity: 0.8;
   color: #ff6b00;
   letter-spacing: 0.5px;
 }

@@ -42,7 +42,7 @@ function App() {
             />
             <ProjectCard
               name="Heather with the Weather"
-              description="She tells you what to wear, if you should leave the house, and gives you the vibe of the day. And she's really pretty :)"
+              description="She tells you what to wear, if you should leave the house, and the vibe of the day. And she's pretty :)"
               tags={["Flutter", "Android", "iOS"]}
               link="https://apps.apple.com/sa/app/heather-with-the-weather/id6759031148"
             />
@@ -57,8 +57,8 @@ function App() {
               id="email-btn"
               buttonText="email"
               color="#ff44c8"
-              width={200}
-              height={50}
+              width={160}
+              height={40}
               fontSize={16}
               borderWidth={3}
               onClick={() => window.open("mailto:jackieleighh@gmail.com")}
@@ -67,8 +67,8 @@ function App() {
               id="github-btn"
               buttonText="github"
               color="#ff44c8"
-              width={200}
-              height={50}
+              width={160}
+              height={40}
               fontSize={16}
               borderWidth={3}
               onClick={() =>
@@ -79,8 +79,8 @@ function App() {
               id="instagram-btn"
               buttonText="instagram"
               color="#ff44c8"
-              width={200}
-              height={50}
+              width={160}
+              height={40}
               fontSize={16}
               borderWidth={3}
               onClick={() =>
