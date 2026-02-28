@@ -15,7 +15,7 @@ function App() {
             Hi. <br />
             I'm Jackie.
           </h1>
-          <p>freelance dev</p>
+          <p>freelance web & mobile developer</p>
         </div>
 
         {/* About */}
