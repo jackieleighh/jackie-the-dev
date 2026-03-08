@@ -362,8 +362,8 @@ body {
 
 .stagger-item {
   opacity: 0;
-  transform: translateX(calc(-100% - 40px));
-  transition: transform 0.8s ease, opacity 0.15s ease;
+  transform: translateX(calc(-100% - 120px));
+  transition: transform 0.8s ease, opacity 1.6s ease;
 }
 
 .stagger-item--visible {
