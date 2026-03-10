@@ -15,6 +15,7 @@ function ScrollSection({
   trigger = false,
   onComplete,
   staggerItems,
+  staggerClass = "stagger-card",
 }: {
   id: string;
   children?: React.ReactNode;
@@ -23,6 +24,7 @@ function ScrollSection({
   trigger?: boolean;
   onComplete?: () => void;
   staggerItems?: React.ReactNode[];
+  staggerClass?: string;
 }) {
   const [inView, setInView] = useState(false);
   const [headerDone, setHeaderDone] = useState(false);
@@ -92,7 +94,6 @@ function ScrollSection({
         <AnimatedBody
           paragraphs={bodyLines}
           trigger={headerDone}
-          letterDelay={10}
           onComplete={onBodyComplete}
         />
       ) : staggerItems ? (
@@ -100,7 +101,7 @@ function ScrollSection({
           {staggerItems.map((item, i) => (
             <div
               key={i}
-              className={`stagger-item${i < itemsRevealed ? " stagger-item--visible" : ""}`}
+              className={`${staggerClass}${i < itemsRevealed ? ` ${staggerClass}--visible` : ""}`}
             >
               {item}
             </div>
@@ -194,18 +195,19 @@ function App() {
           header="my work"
           trigger={aboutDone}
           onComplete={onProjectsComplete}
+          staggerClass="stagger-card"
           staggerItems={[
-            <ProjectCard
-              name="TOTMS"
-              description="Your festival buddy — schedules, maps, storm alerts (hope not). Everything you need, right in your pocket."
-              tags={["React", "Flutter", "Firebase"]}
-              link="https://totms-app.web.app/"
-            />,
             <ProjectCard
               name="Heather with the Weather"
               description="She tells you what to wear, if you should leave the house, and the vibe of the day. And she's pretty :)"
               tags={["Flutter", "Android", "iOS"]}
               link="https://apps.apple.com/sa/app/heather-with-the-weather/id6759031148"
+            />,
+            <ProjectCard
+              name="TOTMS"
+              description="Your festival buddy — schedules, maps, storm alerts (hope not). Everything you need, right in your pocket."
+              tags={["React", "Flutter", "Firebase"]}
+              link="https://totms-app.web.app/"
             />,
           ]}
         />
@@ -215,6 +217,7 @@ function App() {
           id="contact"
           header="get in touch"
           trigger={projectsDone}
+          staggerClass="stagger-button"
           staggerItems={[
             <FancyButton
               id="email-btn"
