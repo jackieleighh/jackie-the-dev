@@ -22,38 +22,41 @@ function AnimatedLetters({
   showCursor = false,
 }: AnimatedLettersProps) {
   const calledRef = useRef(false);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const [visibleCount, setVisibleCount] = useState(0);
 
-  // Typewriter mode: reveal one character per frame for smooth animation
+  // Typewriter mode: reveal one character at a fixed interval
+  // Uses setInterval instead of requestAnimationFrame so the speed stays
+  // consistent even when the element is off-screen (rAF gets throttled).
   useEffect(() => {
     if (!typewriter || !trigger) return;
 
-    let rafId: number;
     let count = 0;
-    let lastTime = 0;
-    let started = false;
+    const delay = startDelay > 0 ? startDelay : undefined;
 
-    const animate = (timestamp: number) => {
-      if (!started) {
-        lastTime = timestamp + startDelay;
-        started = true;
-      }
-      if (timestamp < lastTime) {
-        rafId = requestAnimationFrame(animate);
-        return;
-      }
-      if (timestamp - lastTime >= letterDelay) {
+    const start = () => {
+      const id = setInterval(() => {
         count = Math.min(count + 1, text.length);
         setVisibleCount(count);
-        lastTime = timestamp;
-      }
-      if (count < text.length) {
-        rafId = requestAnimationFrame(animate);
-      }
+        if (count >= text.length) {
+          clearInterval(id);
+        }
+      }, Math.max(letterDelay, 1));
+      return id;
     };
 
-    rafId = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(rafId);
+    if (delay) {
+      const timeout = setTimeout(() => {
+        intervalRef.current = start();
+      }, delay);
+      return () => {
+        clearTimeout(timeout);
+        if (intervalRef.current) clearInterval(intervalRef.current);
+      };
+    }
+
+    const id = start();
+    return () => clearInterval(id);
   }, [typewriter, trigger, text.length, letterDelay, startDelay]);
 
   // onComplete callback
