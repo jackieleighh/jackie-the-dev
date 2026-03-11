@@ -694,8 +694,8 @@ body {
 
 .stagger-card {
   opacity: 0;
-  transform: translateY(15px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 .stagger-card--visible {

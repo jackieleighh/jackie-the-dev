@@ -10,6 +10,47 @@ import ScrollProgress from "./ScrollProgress";
 import Sprinkles from "./Sprinkles";
 import ResponsiveNavbar from "./ResponsiveNavbar";
 
+function StaggerItem({
+  children,
+  index,
+  isVisible,
+  staggerClass,
+  onInView,
+}: {
+  children: React.ReactNode;
+  index: number;
+  isVisible: boolean;
+  staggerClass: string;
+  onInView: (index: number) => void;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          onInView(index);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [index, onInView]);
+
+  return (
+    <div
+      ref={ref}
+      className={`${staggerClass}${isVisible ? ` ${staggerClass}--visible` : ""}`}
+    >
+      {children}
+    </div>
+  );
+}
+
 function ScrollSection({
   id,
   children,
@@ -19,6 +60,7 @@ function ScrollSection({
   onComplete,
   staggerItems,
   staggerClass = "stagger-card",
+  staggerDelay = 200,
   immediate = false,
 }: {
   id: string;
@@ -29,17 +71,22 @@ function ScrollSection({
   onComplete?: () => void;
   staggerItems?: React.ReactNode[];
   staggerClass?: string;
+  staggerDelay?: number;
   immediate?: boolean;
 }) {
   const [inView, setInView] = useState(false);
   const [headerDone, setHeaderDone] = useState(false);
   const [bodyDone, setBodyDone] = useState(false);
   const [itemsRevealed, setItemsRevealed] = useState<number>(0);
+  const [itemsInView, setItemsInView] = useState<Set<number>>(new Set());
   const [parallaxY, setParallaxY] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
   const completedRef = useRef(false);
   const onHeaderComplete = useCallback(() => setHeaderDone(true), []);
   const onBodyComplete = useCallback(() => setBodyDone(true), []);
+  const markItemInView = useCallback((index: number) => {
+    setItemsInView((prev) => new Set(prev).add(index));
+  }, []);
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -72,14 +119,15 @@ function ScrollSection({
 
   const active = immediate ? trigger : trigger && inView;
 
-  // Stagger items one by one after header completes
+  // Stagger items one by one after header completes, only when in view
   useEffect(() => {
     if (!staggerItems || !headerDone || itemsRevealed >= staggerItems.length) return;
+    if (!itemsInView.has(itemsRevealed)) return;
     const timer = setTimeout(() => {
       setItemsRevealed((n) => n + 1);
-    }, 200);
+    }, staggerDelay);
     return () => clearTimeout(timer);
-  }, [headerDone, itemsRevealed, staggerItems]);
+  }, [headerDone, itemsRevealed, staggerItems, itemsInView, staggerDelay]);
 
   useEffect(() => {
     if (completedRef.current || !onComplete) return;
@@ -119,12 +167,15 @@ function ScrollSection({
       ) : staggerItems ? (
         <div className="section-row">
           {staggerItems.map((item, i) => (
-            <div
+            <StaggerItem
               key={i}
-              className={`${staggerClass}${i < itemsRevealed ? ` ${staggerClass}--visible` : ""}`}
+              index={i}
+              isVisible={i < itemsRevealed}
+              staggerClass={staggerClass}
+              onInView={markItemInView}
             >
               {item}
-            </div>
+            </StaggerItem>
           ))}
         </div>
       ) : (
@@ -226,6 +277,7 @@ function App() {
           trigger={aboutDone}
           onComplete={onProjectsComplete}
           staggerClass="stagger-card"
+          staggerDelay={400}
           staggerItems={[
             <ProjectCard
               name="Heather with the Weather"
