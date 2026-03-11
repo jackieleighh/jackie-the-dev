@@ -534,17 +534,6 @@ body {
   transform: translateY(0);
 }
 
-/* Fade paragraphs (About section) */
-
-.fade-paragraph {
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-.fade-paragraph--visible {
-  opacity: 1;
-}
-
 /* Scale + fade stagger (Project cards) */
 
 .stagger-card {

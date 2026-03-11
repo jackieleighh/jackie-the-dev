@@ -55,11 +55,7 @@ function AnimatedLetters({
   if (typewriter) {
     return (
       <span className={className}>
-        {text.slice(0, visibleCount).split("").map((char, i) => (
-          <span key={i} style={{ display: "inline" }}>
-            {char === " " ? "\u00A0" : char}
-          </span>
-        ))}
+        {text.slice(0, visibleCount)}
         {showCursor && trigger && <span className="hero-cursor" />}
       </span>
     );
