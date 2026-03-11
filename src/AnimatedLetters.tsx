@@ -24,15 +24,37 @@ function AnimatedLetters({
   const calledRef = useRef(false);
   const [visibleCount, setVisibleCount] = useState(0);
 
-  // Typewriter mode: reveal characters one by one via state
+  // Typewriter mode: reveal one character per frame for smooth animation
   useEffect(() => {
     if (!typewriter || !trigger) return;
-    if (visibleCount >= text.length) return;
 
-    const delay = visibleCount === 0 ? startDelay + letterDelay : letterDelay;
-    const timer = setTimeout(() => setVisibleCount((v) => v + 1), delay);
-    return () => clearTimeout(timer);
-  }, [typewriter, trigger, visibleCount, text.length, letterDelay, startDelay]);
+    let rafId: number;
+    let count = 0;
+    let lastTime = 0;
+    let started = false;
+
+    const animate = (timestamp: number) => {
+      if (!started) {
+        lastTime = timestamp + startDelay;
+        started = true;
+      }
+      if (timestamp < lastTime) {
+        rafId = requestAnimationFrame(animate);
+        return;
+      }
+      if (timestamp - lastTime >= letterDelay) {
+        count = Math.min(count + 1, text.length);
+        setVisibleCount(count);
+        lastTime = timestamp;
+      }
+      if (count < text.length) {
+        rafId = requestAnimationFrame(animate);
+      }
+    };
+
+    rafId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(rafId);
+  }, [typewriter, trigger, text.length, letterDelay, startDelay]);
 
   // onComplete callback
   useEffect(() => {

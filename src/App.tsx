@@ -1,6 +1,5 @@
 import React, { useState, useCallback, useEffect, useRef } from "react";
 import "./App.css";
-import ResponsiveNavbar from "./ResponsiveNavbar";
 import ProjectCard from "./ProjectCard";
 import ContactCard from "./ContactCard";
 import AnimatedLetters from "./AnimatedLetters";
@@ -9,6 +8,7 @@ import MouseGlow from "./MouseGlow";
 import BackgroundBlobs from "./BackgroundBlobs";
 import ScrollProgress from "./ScrollProgress";
 import Sprinkles from "./Sprinkles";
+import ResponsiveNavbar from "./ResponsiveNavbar";
 
 function ScrollSection({
   id,
@@ -19,6 +19,7 @@ function ScrollSection({
   onComplete,
   staggerItems,
   staggerClass = "stagger-card",
+  immediate = false,
 }: {
   id: string;
   children?: React.ReactNode;
@@ -28,6 +29,7 @@ function ScrollSection({
   onComplete?: () => void;
   staggerItems?: React.ReactNode[];
   staggerClass?: string;
+  immediate?: boolean;
 }) {
   const [inView, setInView] = useState(false);
   const [headerDone, setHeaderDone] = useState(false);
@@ -68,7 +70,7 @@ function ScrollSection({
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const active = trigger && inView;
+  const active = immediate ? trigger : trigger && inView;
 
   // Stagger items one by one after header completes
   useEffect(() => {
@@ -165,8 +167,8 @@ function App() {
 
   return (
     <div className={`App${introComplete ? " intro-complete" : ""}`}>
+      <ResponsiveNavbar visible={introComplete} />
       <ScrollProgress />
-      <ResponsiveNavbar />
       <MouseGlow />
       <Sprinkles />
       <div className="main-page">
@@ -210,6 +212,7 @@ function App() {
           header="about me"
           trigger={introComplete}
           onComplete={onAboutComplete}
+          immediate
           bodyLines={[
             "I make things for your browser and your pocket. TypeScript, React, Flutter — give me a problem and I'll make it pretty. Big fan of weird animations, tiny details, and code that doesn't haunt me later.",
             "Got something fun in mind? Let's build it.",

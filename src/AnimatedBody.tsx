@@ -11,7 +11,7 @@ interface AnimatedBodyProps {
 function AnimatedBody({
   paragraphs,
   trigger,
-  letterDelay = 18,
+  letterDelay = 8,
   onComplete,
 }: AnimatedBodyProps) {
   const [activeParagraph, setActiveParagraph] = useState(-1);
