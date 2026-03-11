@@ -105,6 +105,7 @@ function ScrollSection({
           trigger={active}
           letterDelay={35}
           onComplete={onHeaderComplete}
+          typewriter
         />
       </div>
       {bodyLines ? (
@@ -198,7 +199,7 @@ function App() {
               letterDelay={30}
               onComplete={onTaglineComplete}
               typewriter
-              showCursor={line2Done && !taglineDone}
+              showCursor={line2Done}
             />
           </p>
         </div>
