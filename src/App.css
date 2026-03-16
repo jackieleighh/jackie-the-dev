@@ -349,7 +349,7 @@ body {
   left: -5%;
   right: -5%;
   height: 150px;
-  background: radial-gradient(ellipse at 50% 100%, #ff7a3d 65%, #ffaa33 88%, #f0c030 100%);
+  background: #fff;
   border-radius: 50% 50% 0 0 / 40px 40px 0 0;
 }
 
@@ -363,7 +363,7 @@ body {
   height: 220px;
   bottom: -190px;
   left: 28%;
-  background: radial-gradient(circle, #ff7a3d 60%, #ffaa33 88%, #f0c030 100%);
+  background: #fff;
   border-radius: 45% 55% 50% 50%;
   animation: lava-rise-1 42s ease-in-out infinite;
 }
@@ -373,10 +373,10 @@ body {
   height: 170px;
   bottom: -150px;
   right: 22%;
-  background: radial-gradient(circle, #ff9a2e 60%, #ffaa33 88%, #f0c030 100%);
+  background: #fff;
   border-radius: 50% 45% 50% 55%;
   animation: lava-rise-2 48s ease-in-out infinite;
-  animation-delay: -10s;
+  animation-delay: 1s;
 }
 
 .lava-blob-3 {
@@ -384,9 +384,9 @@ body {
   height: 120px;
   bottom: -110px;
   left: 55%;
-  background: radial-gradient(circle, #ff7a3d 60%, #ffaa33 88%, #f0c030 100%);
+  background: #fff;
   animation: lava-rise-3 38s ease-in-out infinite;
-  animation-delay: -5s;
+  animation-delay: 2s;
 }
 
 .lava-blob-4 {
@@ -394,10 +394,10 @@ body {
   height: 180px;
   bottom: -160px;
   left: 8%;
-  background: radial-gradient(circle, #ff7a3d 55%, #ff9a2e 82%, #f0c030 100%);
+  background: #fff;
   border-radius: 55% 45% 50% 50%;
   animation: lava-rise-4 52s ease-in-out infinite;
-  animation-delay: -18s;
+  animation-delay: 0.5s;
 }
 
 .lava-blob-5 {
@@ -405,9 +405,9 @@ body {
   height: 100px;
   bottom: -90px;
   right: 8%;
-  background: radial-gradient(circle, #ff9a2e 60%, #ffaa33 88%, #f0c030 100%);
+  background: #fff;
   animation: lava-rise-5 44s ease-in-out infinite;
-  animation-delay: -14s;
+  animation-delay: 3s;
 }
 
 .lava-blob-6 {
@@ -415,10 +415,10 @@ body {
   height: 190px;
   bottom: -170px;
   left: 42%;
-  background: radial-gradient(circle, #ff7a3d 60%, #ffaa33 88%, #f0c030 100%);
+  background: #fff;
   border-radius: 48% 52% 50% 50%;
   animation: lava-rise-6 46s ease-in-out infinite;
-  animation-delay: -25s;
+  animation-delay: 1.5s;
 }
 
 .lava-blob-7 {
@@ -426,9 +426,9 @@ body {
   height: 110px;
   bottom: -100px;
   right: 38%;
-  background: radial-gradient(circle, #ff9a2e 60%, #ffaa33 88%, #f0c030 100%);
+  background: #fff;
   animation: lava-rise-7 40s ease-in-out infinite;
-  animation-delay: -20s;
+  animation-delay: 3.5s;
 }
 
 .lava-blob-8 {
@@ -436,10 +436,10 @@ body {
   height: 155px;
   bottom: -140px;
   left: 70%;
-  background: radial-gradient(circle, #ff7a3d 55%, #ff9a2e 82%, #f0c030 100%);
+  background: #fff;
   border-radius: 52% 48% 50% 50%;
   animation: lava-rise-8 50s ease-in-out infinite;
-  animation-delay: -32s;
+  animation-delay: 2.5s;
 }
 
 @keyframes lava-rise-1 {
@@ -526,10 +526,10 @@ body {
   height: 145px;
   bottom: -130px;
   left: 18%;
-  background: radial-gradient(circle, #ff9a2e 60%, #ffaa33 88%, #f0c030 100%);
+  background: #fff;
   border-radius: 47% 53% 50% 50%;
   animation: lava-rise-9 45s ease-in-out infinite;
-  animation-delay: -28s;
+  animation-delay: 4s;
 }
 
 .lava-blob-10 {
@@ -537,9 +537,9 @@ body {
   height: 115px;
   bottom: -105px;
   right: 15%;
-  background: radial-gradient(circle, #ff7a3d 60%, #ffaa33 88%, #f0c030 100%);
+  background: #fff;
   animation: lava-rise-10 43s ease-in-out infinite;
-  animation-delay: -7s;
+  animation-delay: 0.8s;
 }
 
 @keyframes lava-rise-9 {
@@ -996,6 +996,53 @@ body {
   100% {
     opacity: 0;
     transform: translate(-50%, 10px) scale(0);
+  }
+}
+
+/* Fewer lava blobs on mobile */
+
+@media (max-width: 768px) {
+  .lava-blob-3,
+  .lava-blob-5,
+  .lava-blob-7,
+  .lava-blob-9,
+  .lava-blob-10 {
+    display: none;
+  }
+
+  .lava-blob-1 {
+    width: 120px;
+    height: 150px;
+    bottom: -130px;
+  }
+
+  .lava-blob-2 {
+    width: 100px;
+    height: 115px;
+    bottom: -100px;
+  }
+
+  .lava-blob-4 {
+    width: 135px;
+    height: 120px;
+    bottom: -110px;
+  }
+
+  .lava-blob-6 {
+    width: 110px;
+    height: 130px;
+    bottom: -115px;
+  }
+
+  .lava-blob-8 {
+    width: 95px;
+    height: 105px;
+    bottom: -95px;
+  }
+
+  .lava-pool {
+    height: 110px;
+    bottom: -100px;
   }
 }
 
