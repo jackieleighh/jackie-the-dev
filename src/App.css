@@ -323,6 +323,244 @@ body {
   50% { transform: translate(-40px, -50px) scale(1.15); }
 }
 
+/* Lava Lamp */
+
+.lava-bubbles {
+  position: absolute;
+  left: -10%;
+  right: -10%;
+  bottom: 0;
+  height: 65%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.lava-bubble-layer {
+  position: absolute;
+  inset: 0;
+  filter: url(#lava);
+  opacity: 0.18;
+}
+
+/* Pool hidden below the bottom edge — blobs merge into it via metaball */
+.lava-pool {
+  position: absolute;
+  bottom: -140px;
+  left: -5%;
+  right: -5%;
+  height: 150px;
+  background: radial-gradient(ellipse at 50% 100%, #ff7a3d 65%, #ffaa33 88%, #f0c030 100%);
+  border-radius: 50% 50% 0 0 / 40px 40px 0 0;
+}
+
+.lava-blob {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.lava-blob-1 {
+  width: 180px;
+  height: 220px;
+  bottom: -190px;
+  left: 28%;
+  background: radial-gradient(circle, #ff7a3d 60%, #ffaa33 88%, #f0c030 100%);
+  border-radius: 45% 55% 50% 50%;
+  animation: lava-rise-1 42s ease-in-out infinite;
+}
+
+.lava-blob-2 {
+  width: 150px;
+  height: 170px;
+  bottom: -150px;
+  right: 22%;
+  background: radial-gradient(circle, #ff9a2e 60%, #ffaa33 88%, #f0c030 100%);
+  border-radius: 50% 45% 50% 55%;
+  animation: lava-rise-2 48s ease-in-out infinite;
+  animation-delay: -10s;
+}
+
+.lava-blob-3 {
+  width: 120px;
+  height: 120px;
+  bottom: -110px;
+  left: 55%;
+  background: radial-gradient(circle, #ff7a3d 60%, #ffaa33 88%, #f0c030 100%);
+  animation: lava-rise-3 38s ease-in-out infinite;
+  animation-delay: -5s;
+}
+
+.lava-blob-4 {
+  width: 200px;
+  height: 180px;
+  bottom: -160px;
+  left: 8%;
+  background: radial-gradient(circle, #ff7a3d 55%, #ff9a2e 82%, #f0c030 100%);
+  border-radius: 55% 45% 50% 50%;
+  animation: lava-rise-4 52s ease-in-out infinite;
+  animation-delay: -18s;
+}
+
+.lava-blob-5 {
+  width: 100px;
+  height: 100px;
+  bottom: -90px;
+  right: 8%;
+  background: radial-gradient(circle, #ff9a2e 60%, #ffaa33 88%, #f0c030 100%);
+  animation: lava-rise-5 44s ease-in-out infinite;
+  animation-delay: -14s;
+}
+
+.lava-blob-6 {
+  width: 160px;
+  height: 190px;
+  bottom: -170px;
+  left: 42%;
+  background: radial-gradient(circle, #ff7a3d 60%, #ffaa33 88%, #f0c030 100%);
+  border-radius: 48% 52% 50% 50%;
+  animation: lava-rise-6 46s ease-in-out infinite;
+  animation-delay: -25s;
+}
+
+.lava-blob-7 {
+  width: 110px;
+  height: 110px;
+  bottom: -100px;
+  right: 38%;
+  background: radial-gradient(circle, #ff9a2e 60%, #ffaa33 88%, #f0c030 100%);
+  animation: lava-rise-7 40s ease-in-out infinite;
+  animation-delay: -20s;
+}
+
+.lava-blob-8 {
+  width: 140px;
+  height: 155px;
+  bottom: -140px;
+  left: 70%;
+  background: radial-gradient(circle, #ff7a3d 55%, #ff9a2e 82%, #f0c030 100%);
+  border-radius: 52% 48% 50% 50%;
+  animation: lava-rise-8 50s ease-in-out infinite;
+  animation-delay: -32s;
+}
+
+@keyframes lava-rise-1 {
+  0%, 100% { transform: translate(0, 0) scaleX(1) scaleY(1); }
+  12% { transform: translate(35px, -50px) scaleX(0.95) scaleY(1.2); }
+  28% { transform: translate(-20px, -160px) scaleX(0.8) scaleY(1.5); }
+  42% { transform: translate(40px, -230px) scaleX(0.85) scaleY(1.25); }
+  58% { transform: translate(-10px, -190px) scaleX(0.9) scaleY(1.3); }
+  75% { transform: translate(25px, -80px) scaleX(0.95) scaleY(1.1); }
+  88% { transform: translate(-15px, -30px) scaleX(1) scaleY(1.05); }
+}
+
+@keyframes lava-rise-2 {
+  0%, 100% { transform: translate(0, 0) scaleX(1) scaleY(1); }
+  15% { transform: translate(-40px, -40px) scaleX(0.95) scaleY(1.15); }
+  30% { transform: translate(25px, -120px) scaleX(0.85) scaleY(1.4); }
+  48% { transform: translate(-50px, -170px) scaleX(0.88) scaleY(1.2); }
+  62% { transform: translate(15px, -140px) scaleX(0.92) scaleY(1.3); }
+  78% { transform: translate(-30px, -60px) scaleX(0.97) scaleY(1.08); }
+  90% { transform: translate(10px, -20px) scaleX(1) scaleY(1.02); }
+}
+
+@keyframes lava-rise-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  10% { transform: translate(-25px, -30px) scale(1.05); }
+  25% { transform: translate(40px, -130px) scale(0.9); }
+  40% { transform: translate(-15px, -220px) scale(0.82); }
+  55% { transform: translate(30px, -250px) scale(0.85); }
+  68% { transform: translate(-35px, -160px) scale(0.92); }
+  82% { transform: translate(20px, -60px) scale(1.02); }
+}
+
+@keyframes lava-rise-4 {
+  0%, 100% { transform: translate(0, 0) scaleX(1) scaleY(1); }
+  10% { transform: translate(30px, -30px) scaleX(0.97) scaleY(1.1); }
+  25% { transform: translate(60px, -90px) scaleX(0.88) scaleY(1.3); }
+  40% { transform: translate(20px, -150px) scaleX(0.82) scaleY(1.4); }
+  55% { transform: translate(70px, -130px) scaleX(0.9) scaleY(1.2); }
+  70% { transform: translate(40px, -70px) scaleX(0.95) scaleY(1.1); }
+  85% { transform: translate(15px, -20px) scaleX(0.98) scaleY(1.03); }
+}
+
+@keyframes lava-rise-5 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  12% { transform: translate(20px, -35px) scale(1.08); }
+  28% { transform: translate(-30px, -110px) scale(0.88); }
+  45% { transform: translate(15px, -180px) scale(0.8); }
+  60% { transform: translate(-40px, -150px) scale(0.9); }
+  75% { transform: translate(25px, -70px) scale(1.0); }
+  88% { transform: translate(-10px, -25px) scale(1.04); }
+}
+
+@keyframes lava-rise-6 {
+  0%, 100% { transform: translate(0, 0) scaleX(1) scaleY(1); }
+  14% { transform: translate(-30px, -45px) scaleX(0.93) scaleY(1.18); }
+  30% { transform: translate(45px, -140px) scaleX(0.82) scaleY(1.45); }
+  46% { transform: translate(-20px, -200px) scaleX(0.87) scaleY(1.2); }
+  60% { transform: translate(35px, -170px) scaleX(0.9) scaleY(1.35); }
+  76% { transform: translate(-15px, -75px) scaleX(0.96) scaleY(1.1); }
+  90% { transform: translate(10px, -20px) scaleX(1) scaleY(1.03); }
+}
+
+@keyframes lava-rise-7 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  15% { transform: translate(30px, -40px) scale(1.06); }
+  32% { transform: translate(-25px, -120px) scale(0.85); }
+  50% { transform: translate(20px, -190px) scale(0.8); }
+  65% { transform: translate(-35px, -140px) scale(0.9); }
+  80% { transform: translate(15px, -55px) scale(1.02); }
+}
+
+@keyframes lava-rise-8 {
+  0%, 100% { transform: translate(0, 0) scaleX(1) scaleY(1); }
+  12% { transform: translate(25px, -35px) scaleX(0.96) scaleY(1.12); }
+  26% { transform: translate(-35px, -100px) scaleX(0.84) scaleY(1.38); }
+  42% { transform: translate(50px, -160px) scaleX(0.88) scaleY(1.22); }
+  56% { transform: translate(-20px, -185px) scaleX(0.86) scaleY(1.3); }
+  72% { transform: translate(30px, -90px) scaleX(0.94) scaleY(1.08); }
+  86% { transform: translate(-10px, -25px) scaleX(0.99) scaleY(1.02); }
+}
+
+.lava-blob-9 {
+  width: 130px;
+  height: 145px;
+  bottom: -130px;
+  left: 18%;
+  background: radial-gradient(circle, #ff9a2e 60%, #ffaa33 88%, #f0c030 100%);
+  border-radius: 47% 53% 50% 50%;
+  animation: lava-rise-9 45s ease-in-out infinite;
+  animation-delay: -28s;
+}
+
+.lava-blob-10 {
+  width: 115px;
+  height: 115px;
+  bottom: -105px;
+  right: 15%;
+  background: radial-gradient(circle, #ff7a3d 60%, #ffaa33 88%, #f0c030 100%);
+  animation: lava-rise-10 43s ease-in-out infinite;
+  animation-delay: -7s;
+}
+
+@keyframes lava-rise-9 {
+  0%, 100% { transform: translate(0, 0) scaleX(1) scaleY(1); }
+  13% { transform: translate(-30px, -50px) scaleX(0.94) scaleY(1.15); }
+  28% { transform: translate(40px, -130px) scaleX(0.83) scaleY(1.42); }
+  44% { transform: translate(-25px, -195px) scaleX(0.87) scaleY(1.25); }
+  60% { transform: translate(35px, -160px) scaleX(0.91) scaleY(1.32); }
+  76% { transform: translate(-20px, -70px) scaleX(0.96) scaleY(1.08); }
+  89% { transform: translate(10px, -20px) scaleX(0.99) scaleY(1.03); }
+}
+
+@keyframes lava-rise-10 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  14% { transform: translate(25px, -45px) scale(1.06); }
+  30% { transform: translate(-35px, -125px) scale(0.86); }
+  48% { transform: translate(20px, -200px) scale(0.82); }
+  63% { transform: translate(-30px, -155px) scale(0.92); }
+  78% { transform: translate(15px, -65px) scale(1.02); }
+}
+
 /* Hero */
 
 #home {
@@ -770,7 +1008,7 @@ body {
     transition-duration: 0.01ms !important;
   }
 
-  .blob, .sprinkle, .sparkle, .hero-cursor {
+  .blob, .lava-blob, .lava-pool, .sprinkle, .sparkle, .hero-cursor {
     display: none;
   }
 
