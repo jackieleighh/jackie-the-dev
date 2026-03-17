@@ -156,6 +156,7 @@ function ScrollSection({
           letterDelay={35}
           onComplete={onHeaderComplete}
           typewriter
+          showCursor={!headerDone}
         />
       </div>
       {bodyLines ? (
