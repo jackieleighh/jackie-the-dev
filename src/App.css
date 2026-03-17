@@ -999,50 +999,11 @@ body {
   }
 }
 
-/* Fewer lava blobs on mobile */
+/* Hide lava on mobile */
 
 @media (max-width: 768px) {
-  .lava-blob-3,
-  .lava-blob-5,
-  .lava-blob-7,
-  .lava-blob-9,
-  .lava-blob-10 {
+  .lava-bubbles {
     display: none;
-  }
-
-  .lava-blob-1 {
-    width: 120px;
-    height: 150px;
-    bottom: -130px;
-  }
-
-  .lava-blob-2 {
-    width: 100px;
-    height: 115px;
-    bottom: -100px;
-  }
-
-  .lava-blob-4 {
-    width: 135px;
-    height: 120px;
-    bottom: -110px;
-  }
-
-  .lava-blob-6 {
-    width: 110px;
-    height: 130px;
-    bottom: -115px;
-  }
-
-  .lava-blob-8 {
-    width: 95px;
-    height: 105px;
-    bottom: -95px;
-  }
-
-  .lava-pool {
-    height: 110px;
-    bottom: -100px;
   }
 }
 
